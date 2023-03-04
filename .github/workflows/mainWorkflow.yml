@@ -6,7 +6,7 @@ on: [push]
 jobs:
   # Lint the Bicep file.
   lint:
-    uses: ./.github/workflows/lint.yml
+    uses: aaproto/githubactions-common/.github/workflows/workflow-1.yml
 
   build-and-deploy:
     needs: lint
