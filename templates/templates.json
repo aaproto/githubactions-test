@@ -1,13 +1,16 @@
 {
     "templates": [
         {
-            "name": "template1"
+            "name": "main",
+            "resourceGroupName": "1-5a87bc82-playground-sandbox"
         },
         {
-            "name": "template2"
+            "name": "main2",
+            "resourceGroupName": "1-5a87bc82-playground-sandbox"
         },
         {
-            "name": "template3"
+            "name": "main3",
+            "resourceGroupName": "1-5a87bc82-playground-sandbox"
         }
     ]
 }
