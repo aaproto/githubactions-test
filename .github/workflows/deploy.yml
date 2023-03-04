@@ -4,8 +4,9 @@ name: Azure ARM
 on: [push]
 
 jobs:
+  # Lint the Bicep file.
   lint:
-    - uses: ./.github/workflows/lint.yml
+    uses: ./.github/workflows/lint.yml
 
 #  build-and-deploy:
 #    runs-on: ubuntu-latest
