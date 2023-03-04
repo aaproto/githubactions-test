@@ -12,4 +12,4 @@ jobs:
     needs: lint
     uses: ./.github/workflows/deploy.yml
     secrets:
-      envPAT: ${{ secrets.AZURE_CREDENTIALS }}
+      AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
