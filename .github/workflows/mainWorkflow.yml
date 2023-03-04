@@ -1,0 +1,13 @@
+name: Azure ARM
+
+# Controls when the workflow will run
+on: [push]
+
+jobs:
+  # Lint the Bicep file.
+  lint:
+    uses: ./.github/workflows/lint.yml
+
+  build-and-deploy:
+    needs: lint
+    uses: ./.github/workflows/deploy.yml

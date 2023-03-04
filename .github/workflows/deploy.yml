@@ -1,40 +1,30 @@
 name: Azure ARM
 
-# Controls when the workflow will run
-on: [push]
+on:
+  workflow_call:
 
 jobs:
   # Lint the Bicep file.
-  lint:
-    uses: ./.github/workflows/lint.yml
+  #lint:
+  #  uses: ./.github/workflows/lint.yml
 
-#  build-and-deploy:
-#    runs-on: ubuntu-latest
-#    needs: lint
-#    steps:
-#
-#      # Checkout code
-#    - uses: actions/checkout@main
-#
-#      # Log into Azure
-#    - uses: azure/login@v1
-#      with:
-#        creds: ${{ secrets.AZURE_CREDENTIALS }}
-#        enable-AzPSSession: true 
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
 
-      # Deploy Bicep file
-    #- name: deploy
-    #  uses: azure/arm-deploy@v1
-    #  with:
-    #    subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-    #    resourceGroupName: ${{ secrets.AZURE_RG }}
-    #    template: ./templates/bicep/main.bicep
-    #    parameters: 'storagePrefix=mystore storageSKU=Standard_LRS'
-    #    failOnStdErr: false
+      # Checkout code
+    - uses: actions/checkout@main
 
-#    - name: Run Azure PowerShell script
-#      uses: azure/powershell@v1
-#      with:
-#        inlineScript: |
-#          ./scripts/deployResources.ps1
-#        azPSVersion: "latest"
+      # Log into Azure
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        enable-AzPSSession: true 
+
+      # Deploy Bicep files
+    - name: Run Azure PowerShell script
+      uses: azure/powershell@v1
+      with:
+        inlineScript: |
+          ./scripts/deployResources.ps1
+        azPSVersion: "latest"

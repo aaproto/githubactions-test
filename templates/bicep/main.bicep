@@ -12,7 +12,7 @@ param storagePrefix string = 'main'
   'Standard_GZRS'
   'Standard_RAGZRS'
 ])
-aram storageSKU string = 'Standard_LRS'
+param storageSKU string = 'Standard_LRS'
 
 param location string = resourceGroup().location
 
