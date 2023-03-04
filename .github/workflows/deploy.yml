@@ -8,13 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@main
-    
+
     - uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
         enable-AzPSSession: true 
 
-    - uses: ./.github/workflows/lint.yml
+    - uses: ./.github/workflows/lint.yml@main
 
   build-and-deploy:
     runs-on: ubuntu-latest
