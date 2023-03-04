@@ -12,6 +12,8 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
         enable-AzPSSession: true 
 
+    - uses: actions/checkout@main
+
     - uses: ./.github/workflows/lint.yml
 
   build-and-deploy:
