@@ -17,11 +17,18 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       # Deploy Bicep file
-    - name: deploy
-      uses: azure/arm-deploy@v1
+    #- name: deploy
+    #  uses: azure/arm-deploy@v1
+    #  with:
+    #    subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+    #    resourceGroupName: ${{ secrets.AZURE_RG }}
+    #    template: ./templates/bicep/main.bicep
+    #    parameters: 'storagePrefix=mystore storageSKU=Standard_LRS'
+    #    failOnStdErr: false
+
+    - name: Run Azure PowerShell script
+      uses: azure/powershell@v1
       with:
-        subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-        resourceGroupName: ${{ secrets.AZURE_RG }}
-        template: ./templates/bicep/main.bicep
-        parameters: 'storagePrefix=mystore storageSKU=Standard_LRS'
-        failOnStdErr: false
+        inlineScript: |
+          ./scripts/getAzResourceGroups.ps1
+        azPSVersion: "latest"
