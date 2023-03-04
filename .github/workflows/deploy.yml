@@ -2,6 +2,9 @@ name: Azure ARM
 
 on:
   workflow_call:
+    secrets:
+      AZURE_CREDENTIALS:
+        required: true
 
 jobs:
   # Lint the Bicep file.
