@@ -5,10 +5,10 @@ on: [push]
 
 jobs:
   # Lint the Bicep file.
-  lint:
-    uses: aaproto/githubactions-common/.github/workflows/lint.yml@main
+  #lint:
+  #  uses: aaproto/githubactions-common/.github/workflows/lint.yml@main
 
-  build-and-deploy:
+  lint-build-and-deploy:
     needs: lint
     uses: ./.github/workflows/deploy.yml
     secrets:
