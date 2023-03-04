@@ -1,6 +1,6 @@
 @minLength(3)
 @maxLength(11)
-param storagePrefix string = 'main'
+param storagePrefix string = 'main1'
 
 @allowed([
   'Standard_LRS'
