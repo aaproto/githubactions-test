@@ -9,7 +9,6 @@ jobs:
   #  uses: aaproto/githubactions-common/.github/workflows/lint.yml@main
 
   lint-build-and-deploy:
-    needs: lint
     uses: ./.github/workflows/deploy.yml
     secrets:
       AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
