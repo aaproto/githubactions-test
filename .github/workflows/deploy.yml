@@ -4,8 +4,12 @@ name: Azure ARM
 on: [push]
 
 jobs:
+  lint:
+    uses: ./.github/workflows/lint.yml
+
   build-and-deploy:
     runs-on: ubuntu-latest
+    needs: lint
     steps:
 
       # Checkout code
@@ -33,10 +37,3 @@ jobs:
         inlineScript: |
           ./scripts/deployResources.ps1
         azPSVersion: "latest"
-
-    - name: Azure CLI script
-      uses: azure/CLI@v1
-      with:
-        azcliversion: 2.30.0
-        inlineScript: |
-          az account show
