@@ -12,7 +12,7 @@ jobs:
     #if: inputs.environment == 'dev'
     if: |
       github.ref == 'refs/heads/main' 
-        && inputs.environment == 'dev'
+        && (inputs.environment == 'dev' || inputs.environment == 'tst')
     environment: ${{ inputs.environment }}
     name: Matrix Test
     runs-on: ubuntu-latest
