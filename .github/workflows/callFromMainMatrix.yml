@@ -10,6 +10,7 @@ on:
 jobs:
   calledFromMainMatrix:
     #if: inputs.environment == 'dev'
+    if: github.ref == 'refs/heads/main' && inputs.environment == 'dev'
     environment: ${{ inputs.environment }}
     name: Matrix Test
     runs-on: ubuntu-latest
