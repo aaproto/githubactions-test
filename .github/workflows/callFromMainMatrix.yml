@@ -16,4 +16,4 @@ jobs:
     steps:
       - name: test matrix
         run: |
-            echo "running the steps for ${{ inputs.environment }}"
+            echo "running the steps for ${{ inputs.environment }} - ${{ vars.APP_NAME }}"
