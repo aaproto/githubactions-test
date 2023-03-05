@@ -9,7 +9,8 @@ on:
 
 jobs:
   calledFromMainMatrix:
-    if: inputs.environment == 'dev'
+    #if: inputs.environment == 'dev'
+    environment: ${{ inputs.environment }}
     name: Matrix Test
     runs-on: ubuntu-latest
     steps:
