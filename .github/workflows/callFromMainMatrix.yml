@@ -3,15 +3,16 @@ name: lint
 on:
   workflow_call:
     inputs:
-      my_variable:
+      environment:
         required: true
         type: string
 
 jobs:
   calledFromMainMatrix:
+    if: inputs.environment == 'dev'
     name: Matrix Test
     runs-on: ubuntu-latest
     steps:
       - name: test matrix
         run: |
-            echo "running the steps for ${{ inputs.my_variable }}"
+            echo "running the steps for ${{ inputs.environment }}"
