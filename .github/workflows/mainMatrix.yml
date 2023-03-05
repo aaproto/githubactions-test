@@ -1,0 +1,11 @@
+name: Main Matrix
+
+on:
+  workflow_dispatch:
+
+jobs:
+  # Lint the Bicep file.
+  testmatrix:
+    uses: ./.github/workflows/callFromMainMatrix.yml
+    with:
+      my_variable: "testvar"
